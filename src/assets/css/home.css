@@ -1,0 +1,138 @@
+body,html{
+    height: 100%;
+}
+.cramming-home{
+    height: 100%;
+    overflow: scroll;
+}
+.cramming-home .header{
+    width: 100%;
+    height: 45px;
+    background-image: linear-gradient(-215deg, #00CCFF 0%, #0A5DF1 100%);
+}
+.cramming-home .swiper-container {
+    width: 100%;
+    height: 187px;
+}  
+.weui-tabbar a{
+    font-size: 16px;
+}
+#tab1 .content {
+    padding: 10px 20px 80px 20px;
+}
+#tab1 .content .title{
+    font-size: 20px;
+    color:#323232;
+    font-weight: 300;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.class-lists .class-list{
+    box-shadow: 0 0 10px #ccc;
+    margin-bottom: 20px;
+}
+#tab1 .class-lists .c-header{
+    background: #E9F5FF;
+    padding: 25px 15px;
+}
+.c-header{
+    display: flex;
+    align-items: center;
+}
+.c-header .c-left{
+    flex: 1;
+}
+.c-header .c-right{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 10px;
+    text-align: center;
+    line-height: 50px;
+    background-image: linear-gradient(-210deg, #00CCFF 0%, #0A5DF1 100%);
+}
+.c-left .p1{
+    font-size:18px;
+    color:#3a444a;
+    text-align:left;
+}
+.c-left .p2{
+    font-size:10px;
+    color:#3a444a;
+    text-align:left;
+}
+.c-left .p3{
+    font-size:10px;
+    color:#3a444a;
+    text-align:left;
+}
+.p2 img,.p3 img{
+    width: 14px;
+    margin-left: -2px;
+}
+.p3 img,.p3 span,.p2 img,.p2 span{
+    display: inline-block;
+    vertical-align: middle;
+}
+#tab1 .c-content{
+    padding: 10px 15px;
+}
+#tab1 .c-content .title{
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#tab1 .c-content>ul>li{
+    list-style: none;
+    display: flex;
+    padding: 10px;
+}
+#tab1 .c-content>ul>li:not(:last-child){
+    border-bottom: 1px solid #A2A2A2;
+}
+#tab1 .c-content>ul>li .b-left{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    overflow: hidden;
+}
+#tab1 .c-content>ul>li .b-mid{
+    flex:1;
+}
+.b-mid p{
+    color:#3a444a;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.b-mid span{
+    display: inline-block;
+    padding: 0px 10px;
+    border-radius: 15px;
+    font-size: 10px;
+    margin-right: 5px;
+    background-image: linear-gradient(-220deg, #EEEEEE 0%, #FFFFFF 100%);
+    border: 1px solid #EAEAEA;
+    color: #A2A2A2;
+}
+#tab1 .c-content>ul>li .b-right{
+    width: 50px;
+}
+.b-right span{
+    font-size: 10px;
+}
+.b-right span::before{
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 12px;
+    background-image: linear-gradient(-210deg, #00CCFF 0%, #0A5DF1 100%);
+    vertical-align: middle;
+    margin-right: 3px;
+}
+#tab1 .c-content>ul>li .b-left img{
+    width: 100%;
+}

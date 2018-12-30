@@ -1,0 +1,23 @@
+{
+  "name": "cramming-class",
+  "version": "1.0.0",
+  "description": "补课系统",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gavin213/cramming-class.git"
+  },
+  "author": "kgy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gavin213/cramming-class/issues"
+  },
+  "homepage": "https://github.com/Gavin213/cramming-class#readme",
+  "dependencies": {
+    "jquery-weui": "^1.2.1",
+    "swiper": "^4.4.6"
+  }
+}
