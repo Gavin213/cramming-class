@@ -6,5 +6,5 @@ $(function () {
         pagination: {
             el: '.swiper-pagination',
         }
-    })
+    });
 })

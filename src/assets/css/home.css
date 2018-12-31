@@ -1,14 +1,63 @@
 body,html{
     height: 100%;
 }
+.weui-tabbar__item>div>img:nth-child(1){
+    display: block;
+}
+.weui-tabbar__item>div>img:nth-child(2){
+    display: none;
+}
+.weui-bar__item--on>div>img:nth-child(1){
+    display: none;
+}
+.weui-bar__item--on>div>img:nth-child(2){
+    display: block;
+}
 .cramming-home{
     height: 100%;
     overflow: scroll;
 }
 .cramming-home .header{
+    position: fixed;
+    top: 0;
     width: 100%;
     height: 45px;
     background-image: linear-gradient(-215deg, #00CCFF 0%, #0A5DF1 100%);
+    z-index: 1000;
+}
+.cramming-home .header .b-select{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.header .triangle{
+    display: block;
+    position: absolute;
+    top: 22px;
+    right: 15px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid #fff;
+    border-bottom: 5px solid transparent;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    z-index: 10;
+}
+.b-select select{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none !important;
+    background-image: linear-gradient(243deg, #00CCFF 0%, #0A5DF1 50%);
+    border: none;
+    border-radius: 0;
+    font-size: 10px;
+    color: #fff;
+    padding: 5px 20px 5px 10px;
+    /* width: 70px; */
+}
+.weui-tab .weui-tab__bd{
+    padding-top: 45px;
 }
 .cramming-home .swiper-container {
     width: 100%;
@@ -24,8 +73,8 @@ body,html{
     font-size: 20px;
     color:#323232;
     font-weight: 300;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .class-lists .class-list{
@@ -34,7 +83,7 @@ body,html{
 }
 #tab1 .class-lists .c-header{
     background: #E9F5FF;
-    padding: 25px 15px;
+    padding: 15px 15px;
 }
 .c-header{
     display: flex;
@@ -88,7 +137,7 @@ body,html{
 #tab1 .c-content>ul>li{
     list-style: none;
     display: flex;
-    padding: 10px;
+    padding: 10px 0;
 }
 #tab1 .c-content>ul>li:not(:last-child){
     border-bottom: 1px solid #A2A2A2;
@@ -120,19 +169,111 @@ body,html{
 }
 #tab1 .c-content>ul>li .b-right{
     width: 50px;
+    text-align: right;
 }
 .b-right span{
+    position: relative;
     font-size: 10px;
+    padding-left: 4px;
 }
 .b-right span::before{
     content: "";
-    display: inline-block;
+    position: absolute;
+    top: 2px;
+    left: 0;
     width: 2px;
-    height: 12px;
+    height: 10px;
     background-image: linear-gradient(-210deg, #00CCFF 0%, #0A5DF1 100%);
-    vertical-align: middle;
     margin-right: 3px;
 }
 #tab1 .c-content>ul>li .b-left img{
     width: 100%;
+}
+
+
+/* 
+    辅导回顾
+*/
+#tab2{
+    padding: 15px 20px 80px 20px;
+}
+#tab2 .c-header{
+    background: #E9F5FF;
+    padding: 10px 10px 10px 20px;
+    border: 1px solid #00CCFF;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* 我的 */
+#tab3 .t3_header{
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    background-image: linear-gradient(-215deg, #00CCFF 0%, #0A5DF1 100%);
+}
+#tab3 .t3_header img{
+    width: 110px;
+    height: 110px;
+}
+
+#tab3 .t3_content{
+    padding: 0px 20px 80px 20px;
+}
+.t3_content .t3_wrapper{
+    box-shadow: 0 0 10px #DADADA;
+    border-radius: 4px;
+}
+#tab3 .weui-cells .weui-cell{
+    padding: 15px;
+}
+#tab3 .weui-cells .weui-cell .weui-input{
+    padding-left: 15px;
+    color: #3A444A;
+}
+#tab3 .weui-label{
+    width: 80px;
+    text-align: center;
+    border-right: 1px solid #DADADA;
+    font-size:12px;
+    color:#045dac;
+}
+#tab3 .agr-wrapper{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#tab3 .agr-wrapper .lg-circle{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #045dac;
+    border-radius: 50%;
+}
+.lg-circle .sm-circle{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00CCFF;
+    top: 3px;
+    left: 3px;
+}
+#tab3 .agr-wrapper .agr-text{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    color: #3a444a;
+    margin-left: 2px;
+    padding-top: 3px;
+}
+#tab3 .btn-register{
+    background-image: linear-gradient(-232deg, #FAD961 0%, #F76B1C 100%) !important;
+    margin-bottom: 20px;
+}
+#tab3 .weui-btn:after{
+    border: none !important;
 }
