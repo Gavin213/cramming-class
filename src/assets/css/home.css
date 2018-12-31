@@ -157,7 +157,7 @@ body,html{
     font-size: 12px;
     margin-bottom: 5px;
 }
-.b-mid span{
+.b-mid>span{
     display: inline-block;
     padding: 0px 10px;
     border-radius: 15px;
@@ -274,6 +274,108 @@ body,html{
     background-image: linear-gradient(-232deg, #FAD961 0%, #F76B1C 100%) !important;
     margin-bottom: 20px;
 }
-#tab3 .weui-btn:after{
+.weui-btn:after{
     border: none !important;
+}
+
+
+/* 
+    辅导安排
+*/
+.arrange-wrapper{
+    padding: 20px 20px 0 20px;
+}
+.arrange-wrapper .c-header{
+    background: #E9F5FF;
+    padding: 10px 10px 10px 20px;
+    border-radius: 8px;
+}
+.coache-list:nth-child(1){
+    margin-top: 65px;
+}
+.coache-list:not(:nth-child(1)){
+    padding-left: 10px;
+    margin-top: 80px;
+    border-radius: 4px;
+}
+.coache-list .email-txt img{
+    display: inline-block;
+    vertical-align: middle;
+    width: 12px;
+}
+.coache-list .email-txt span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.coache-list .c-content>img{
+    display: block;
+    margin: -57px auto 0;
+    width: 95px;
+}
+.coache-list .intro-wrapper{
+    font-size: 11px;
+    color: #3A444A;
+    line-height: 18px;
+    border-top: 1px solid rgba(205,205,205,.3);
+    padding: 10px 0;
+}
+.coache-list .btn-tutoring{
+    width: 150px;
+    height: 34px;
+    padding: 0;
+    line-height: 34px;
+    font-size: 12px;
+    color: #fff;
+    background-image: linear-gradient(222deg, #00CCFF 0%, #0A5DF1 100%);
+    margin-bottom: -27px;
+}
+.coache-layer{
+    text-align: center;
+}
+.coache-layer .close{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #DADADA;
+    font-size: 30px;
+}
+.coache-layer .user-info{
+    padding: 20px;
+}
+.coache-layer .l_1{
+    font-size:16px;
+    color:#3a444a;
+    font-weight: 700;
+    margin-top: 10px;
+}
+.coache-layer .l_2{
+    font-size:12px;
+    color:#3a444a;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.coache-layer img{
+    display: block;
+    margin: 0 auto 5px;
+    width: 93px;
+}
+.layui-m-layercont{
+    padding: 10px !important;
+}
+.coache-layer .btn-username{
+    width: 78px;
+    height: 22px;
+    line-height: 22px;
+    padding: 0;
+    background-image: linear-gradient(222deg, #00CCFF 0%, #0A5DF1 100%);
+    font-size: 12px;
+    color: #FFFFFF;
+}
+.coache-layer .btn-ok{
+    width: 105px;
+    height: 34px;
+    line-height: 34px;
+    padding: 0;
+    background-image: linear-gradient(222deg, #00CCFF 0%, #0A5DF1 100%);
+    margin-bottom: 20px;
 }
