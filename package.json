@@ -1,23 +1,22 @@
 {
-  "name": "cramming-class",
-  "version": "1.0.0",
-  "description": "补课系统",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Gavin213/cramming-class.git"
-  },
-  "author": "kgy",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Gavin213/cramming-class/issues"
-  },
-  "homepage": "https://github.com/Gavin213/cramming-class#readme",
-  "dependencies": {
-    "jquery-weui": "^1.2.1",
-    "swiper": "^4.4.6"
-  }
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "devDependencies": {
+        "axios": "^0.18",
+        "bootstrap": "^4.0.0",
+        "popper.js": "^1.12",
+        "cross-env": "^5.1",
+        "jquery": "^3.2",
+        "laravel-mix": "^2.0",
+        "lodash": "^4.17.4",
+        "vue": "^2.5.7"
+    }
 }
