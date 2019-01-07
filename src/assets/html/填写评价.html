@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>我的评价</title>
+    <link rel="stylesheet" href="../../../node_modules/jquery-weui/dist/lib/weui.css"/>
+    <link rel="stylesheet" href="../../../node_modules/jquery-weui/dist/css/jquery-weui.css"/>
+    <link rel="stylesheet" href="../css/layer.css">
+    <link rel="stylesheet" href="../../../node_modules/swiper/dist/css/swiper.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <link rel="stylesheet" href="../css/mentoting-review.css">
+    <style>
+        .section_2 .fdy-box{
+            padding: .15rem;
+            box-shadow: 0 6px 17px 0 rgba(0,0,0,0.1);
+            margin-top: .23rem;
+            margin-bottom: .24rem;
+            font-size: .11rem;
+            color: #3A444A;
+            background: #fff;
+        }
+        .section_2 .fdy-box .span-1{
+            color: #045DAC;
+            margin-right: .15rem;
+        }
+        form>div{
+            margin-bottom: .15rem;
+            padding: 0 .15rem;
+        }
+        form input,form textarea{
+            font-size: .11rem !important;
+            color: #3A444A !important;
+        }
+        .weui-cells__title{
+            font-size: .11rem;
+            color: #045DAC;
+            padding: 0;
+        }
+        .btn-submit{
+            background-image: linear-gradient(-232deg, #FAD961 0%, #F76B1C 100%);
+            border-radius: 8px;
+            height: .59rem;
+            padding: 0;
+            line-height: .59rem;
+            margin-top: .13rem;
+            color: #fff !important;
+            font-size: .16rem !important;
+            margin-top: .3rem;
+            margin-bottom: .3rem;
+        }
+    </style>
+    <script src="../../../node_modules/jquery-weui/dist/lib/jquery-2.1.4.js"></script>
+    <script src="../../../node_modules/jquery-weui/dist/js/jquery-weui.js"></script>
+    <script src="../../../node_modules/swiper/dist/js/swiper.js"></script>
+    <script src="../js/layer.js"></script>
+    <script src="../js/setfont.js"></script>
+</head>
+
+<body>
+<div class="review-page">
+    <!--<div class="header">-->
+    <!--<img src="../img/导图/切图-logo.png" data-rjs="3" alt="">-->
+    <!--<span class="triangle"></span>-->
+    <!--<div class="b-select">-->
+    <!--<select name="" id="">-->
+    <!--<option value="1">简体中文</option>-->
+    <!--<option value="2">英文</option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <div class="section_1">
+        <div class="c-header">
+            <div class="c-left">
+                <p class="p1">2018年12月20号</p>
+                <p class="p2">
+                    <img src="../img/导图/切图-时间.png" data-rjs="3" alt=""/>
+                    <span>15:00-16:00</span>
+                </p>
+                <p class="p3">
+                    <img src="../img/导图/切图-地点.png" data-rjs="3" alt=""/>
+                    <span>中国 北京市 顺义区安华街10号</span>
+                </p>
+            </div>
+            <div class="c-right">星期四</div>
+        </div>
+    </div>
+    <div class="section_2">
+        <div class="fdy-box">
+            <span class="span-1">评价辅导员</span><span>萝卜煎蛋</span>
+        </div>
+        <div class="">
+            <form action="">
+                <div>
+                    <div class="weui-cells__title">学生姓名</div>
+                    <div class="weui-cells">
+                        <div class="weui-cell">
+                            <div class="weui-cell__bd">
+                                <input class="weui-input" type="text" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="weui-cells__title">课程名称</div>
+                    <div class="weui-cells">
+                        <div class="weui-cell">
+                            <div class="weui-cell__bd">
+                                <input class="weui-input" type="text" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="weui-cells__title">目标解决问题</div>
+                    <div class="weui-cells weui-cells_form">
+                        <div class="weui-cell">
+                            <div class="weui-cell__bd">
+                                <textarea class="weui-textarea" placeholder="" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="weui-cells__title">本次授课内容</div>
+                    <div class="weui-cells weui-cells_form">
+                        <div class="weui-cell">
+                            <div class="weui-cell__bd">
+                                <textarea class="weui-textarea" placeholder="" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="weui-cells__title">本次课作业</div>
+                    <div class="weui-cells weui-cells_form">
+                        <div class="weui-cell">
+                            <div class="weui-cell__bd">
+                                <textarea class="weui-textarea" placeholder="" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="weui-cells__title">课堂听讲注意力</div>
+                    <div class="weui-cells weui-cells_form">
+                        <div class="weui-cell">
+                            <div class="weui-cell__bd">
+                                <textarea class="weui-textarea" placeholder="" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="weui-cells__title">课后作业完成度</div>
+                    <div class="weui-cells weui-cells_form">
+                        <div class="weui-cell">
+                            <div class="weui-cell__bd">
+                                <textarea class="weui-textarea" placeholder="" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="weui-cells__title">其它信息介绍</div>
+                    <div class="weui-cells weui-cells_form">
+                        <div class="weui-cell">
+                            <div class="weui-cell__bd">
+                                <textarea class="weui-textarea" placeholder="" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input type="button" class="weui-btn weui-btn_primary btn-submit" value="提交">
+            </form>
+        </div>
+    </div>
+
+</div>
+<div class="" id="coacheLayer" style="display: none;">
+    <div class="coache-layer">
+        <span class="close">×</span>
+        <div class="user-info">
+            <img src="../img/导图/切图-预约当天课程样式.png" alt="">
+        </div>
+        <p class="l_1">恭喜你，提交成功</p>
+        <p class="l_2">感谢您的辛苦付出</p>
+        <a href="javascript:;" class="weui-btn weui-btn_primary btn-ok">好的</a>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        var coacheLayer;
+//        预约课程
+        $(document).on('click', '.btn-submit', function () {
+            coacheLayer = layer.open({
+                content: $('#coacheLayer').html(),
+                style: 'background-color:#fff; border:none;width: 80%;' //自定风格
+                ,
+                shadeClose: false,
+            });
+        });
+        // 关闭弹框
+        $(document).on('click', '.coache-layer .close,.coache-layer .btn-ok', function () {
+            layer.close(coacheLayer);
+        })
+    })
+</script>
+<script src="../js/retina/dist/retina.min.js"></script>
+<script>
+    retinajs();
+</script>
+</html>

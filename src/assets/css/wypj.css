@@ -1,0 +1,91 @@
+@charset "utf-8";
+
+.section_2 .class-list{
+    padding: .2rem .2rem;
+}
+.evaluation-list .c-content.content-22{
+    border-bottom: 1px solid #CDCDCD; padding: 0 0 .1rem 0;
+    margin-bottom: .1rem;
+}
+.evaluation-list .c-content{
+    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Chrome */
+    display: flex;
+    margin-bottom: .07rem;
+}
+.evaluation-list .c-content .p-left{
+    width: .8rem;
+    font-size: .12rem;
+    color: #045DAC;
+    text-align: right;
+    margin-right: .1rem;
+}
+.evaluation-list .c-content .p-right{
+    -webkit-box-flex: 1; /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1; /* OLD - Firefox 19- */
+    -webkit-flex: 1; /* Chrome */
+    -ms-flex: 1; /* IE 10 */
+    flex: 1;
+    font-size: .12rem;
+    color: #3A444A;
+}
+.btn-course {
+    background-image: linear-gradient(-232deg, #FAD961 0%, #F76B1C 100%);
+    border-radius: 8px;
+    height: .59rem;
+    padding: 0;
+    line-height: .59rem;
+    margin-top: .13rem;
+}
+.bg-star{
+    position: relative;
+    width: 1.24rem;
+    height: 1.4rem;
+    margin: 0 auto;
+}
+.bg-star img{
+    display: block;
+    width: 100%;
+}
+.bg-star p{
+    position: absolute;
+    top: .5rem;
+    left: .48rem;
+    font-size: .5rem;
+    color: #045DAC;
+    font-weight: 300;
+    z-index: 10;
+}
+.star-group{
+    padding: .1rem .2rem;
+    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Chrome */
+    display: flex;
+    border-top: 1px solid #CDCDCD;
+    border-bottom: 1px solid #CDCDCD;
+}
+.star-group>div{
+    -webkit-box-flex: 1; /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1; /* OLD - Firefox 19- */
+    -webkit-flex: 1; /* Chrome */
+    -ms-flex: 1; /* IE 10 */
+    flex: 1;
+}
+.star-group>div>img{
+    width: .3rem;
+    height: .32rem;
+}
+.coache-layer .c-title{
+    font-size: .16rem;
+    color: #3A444A;
+    font-weight: 700;
+    margin-top: .15rem;
+    margin-bottom: .15rem;
+}
+.coache-layer .btn-ok{
+    margin-top: .1rem;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>填写申请</title>
+    <link rel="stylesheet" href="../../../node_modules/jquery-weui/dist/lib/weui.css"/>
+    <link rel="stylesheet" href="../../../node_modules/jquery-weui/dist/css/jquery-weui.css"/>
+    <link rel="stylesheet" href="../css/layer.css">
+    <link rel="stylesheet" href="../../../node_modules/swiper/dist/css/swiper.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <link rel="stylesheet" href="../css/xmfdy.css">
+    <link rel="stylesheet" href="../css/addApply.css">
+    <script src="../../../node_modules/jquery-weui/dist/lib/jquery-2.1.4.js"></script>
+    <script src="../../../node_modules/jquery-weui/dist/js/jquery-weui.js"></script>
+    <script src="../../../node_modules/swiper/dist/js/swiper.js"></script>
+    <script src="../js/layer.js"></script>
+    <script src="../js/setfont.js"></script>
+</head>
+
+<body>
+<div class="review-page">
+    <!--<div class="header">-->
+    <!--<img src="../img/导图/切图-logo.png" data-rjs="3" alt="">-->
+    <!--<span class="triangle"></span>-->
+    <!--<div class="b-select">-->
+    <!--<select name="" id="">-->
+    <!--<option value="1">简体中文</option>-->
+    <!--<option value="2">英文</option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <div class="section_1">
+        <div class="know-wrapper">
+            <img src="../img/导图/切图-辅导员招募配图.png" data-rjs="3" alt="">
+            <div class="content-1">
+                <p class="title-1">1、可以辅导的课程</p>
+                <div class="tag-group">
+                    <span class="tag active">人文</span>
+                    <span class="tag">物理</span>
+                    <span class="tag">人文</span>
+                    <span class="tag">物理</span>
+                    <span class="tag">人文</span>
+                    <span class="tag">人文</span>
+                    <span class="tag">物理</span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="content-2">
+                <p class="title-2">2、我能辅导时间（可多选）</p>
+                <div class="tag-group">
+                    <span class="tag active">每周一 15:30-16:30 </span>
+                    <span class="tag">每周一 15:30-16:30 </span>
+                    <span class="tag">每周一 15:30-16:30 </span>
+                    <span class="tag">每周一 15:30-16:30 </span>
+                    <span class="tag">每周一 15:30-16:30 </span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="content-3">
+                <p class="title-3">3、接受有偿式付费辅导</p>
+                <div class="tag-group">
+                    <span class="tag active">是</span>
+                    <span class="tag">否</span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="content-4">
+                <p class="title-4">4、请上传一张照片</p>
+                <div class="upload-wrapper">
+                    <img src="../img/导图/切图-报名上传照片样式.png" alt="">
+                    <label for="uploaderInput">上传图片</label>
+                    <input id="uploaderInput" style="display: none;" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                </div>
+            </div>
+            <div class="content-5">
+                <p class="title-5">5、请写一段关于你的介绍</p>
+                <textarea name="" id="" rows="5"></textarea>
+            </div>
+            <a href="javascript:;" class="weui-btn weui-btn_primary btn-submit">提交</a>
+        </div>
+    </div>
+    <div class="section_2">
+
+    </div>
+</div>
+<div class="" id="coacheLayer" style="display: none;">
+    <div class="coache-layer">
+        <span class="close">×</span>
+        <div class="user-info">
+            <img src="../img/导图/切图-预约当天课程样式.png" alt="">
+        </div>
+        <p class="l_1">恭喜你，提交成功</p>
+        <p class="l_2">提交成功，请等待我们的审核 </p>
+        <p class="l_2">审核结果我们会以短信方式通知 </p>
+
+        <a href="javascript:;" class="weui-btn weui-btn_primary btn-ok">好的</a>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        $('.content-1 .tag-group>.tag').click(function () {
+            var _this = $(this);
+            if (_this.hasClass('active')){
+                _this.removeClass('active');
+            }else{
+                _this.addClass('active');
+            }
+        })
+        $('.content-2 .tag-group>.tag').click(function () {
+            var _this = $(this);
+            if (_this.hasClass('active')){
+                _this.removeClass('active');
+            }else{
+                _this.addClass('active');
+            }
+        })
+        $('.content-3 .tag-group>.tag').click(function () {
+            var _this = $(this);
+            _this.addClass('active').siblings().removeClass('active');
+        });
+
+        var coacheLayer;
+        $(document).on('click', '.btn-submit', function () {
+            coacheLayer = layer.open({
+                content: $('#coacheLayer').html(),
+                style: 'background-color:#fff; border:none;width: 80%;' //自定风格
+                ,
+                shadeClose: false,
+            });
+        });
+        // 关闭弹框
+        $(document).on('click', '.coache-layer .close,.coache-layer .btn-ok', function () {
+            layer.close(coacheLayer);
+        })
+    })
+</script>
+<script src="../js/retina/dist/retina.min.js"></script>
+<script>
+    retinajs();
+</script>
+</html>
