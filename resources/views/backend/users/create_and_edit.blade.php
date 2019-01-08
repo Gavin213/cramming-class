@@ -3,7 +3,6 @@
 @section('title', $title = $user->id ? '编辑用户' : '添加用户' )
 
 @section('breadcrumb')
-    <a href="">系统设置</a>
     <a href="">用户管理</a>
     <a href="">{{$title}}</a>
 @endsection
@@ -32,6 +31,13 @@
                 </div>
             </div>
 
+            <div class="layui-form-item">
+                <label class="layui-form-label">电话</label>
+                <div class="layui-input-block">
+                    <input type="text" name="phone" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input" value="{{ old('phone',$user->phone) }}" >
+                </div>
+            </div>
+
             @if(!$user->id)
             <div class="layui-form-item">
                 <label class="layui-form-label">密码</label>
@@ -44,27 +50,27 @@
             <div class="layui-form-item" pane="">
                 <label class="layui-form-label">角色</label>
                 <div class="layui-input-block">
-                    @foreach($roles as $key => $val)
-                        <input type="checkbox" name="roles[]" lay-skin="primary" value="{{ $val }}" title="{{ $key }}" @if(in_array($val,$userRoles)) checked="" @endif >
-                    @endforeach
+                    {{--@foreach($roles as $key => $val)--}}
+                        {{--<input type="checkbox" name="roles[]" lay-skin="primary" value="{{ $val }}" title="{{ $key }}" @if(in_array($val,$userRoles)) checked="" @endif >--}}
+                    {{--@endforeach--}}
                 </div>
             </div>
 
-            <div class="layui-form-item layui-form-text">
-                <label class="layui-form-label">个人简介</label>
-                <div class="layui-input-block">
-                    <textarea placeholder="请输入内容" name="introduction" lay-verify="required" class="layui-textarea">{{ old('introduction',$user->introduction) }}</textarea>
-                </div>
-            </div>
+            {{--<div class="layui-form-item layui-form-text">--}}
+                {{--<label class="layui-form-label">个人简介</label>--}}
+                {{--<div class="layui-input-block">--}}
+                    {{--<textarea placeholder="请输入内容" name="introduction" lay-verify="required" class="layui-textarea">{{ old('introduction',$user->introduction) }}</textarea>--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
-            <div class="layui-form-item" pane="">
-                <label class="layui-form-label">状态</label>
-                <div class="layui-input-block">
-                    <input type="radio" name="status" value="0" @if(old('status',$user->status) == 0) checked="" @endif title="未激活" lay-verify="required">
-                    <input type="radio" name="status" value="1" @if(old('status',$user->status) == 1) checked="" @endif title="正常" lay-verify="required">
-                    <input type="radio" name="status" value="2" @if(old('status',$user->status) == 2) checked="" @endif title="停用" lay-verify="required">
-                </div>
-            </div>
+            {{--<div class="layui-form-item" pane="">--}}
+                {{--<label class="layui-form-label">状态</label>--}}
+                {{--<div class="layui-input-block">--}}
+                    {{--<input type="radio" name="status" value="0" @if(old('status',$user->status) == 0) checked="" @endif title="未激活" lay-verify="required">--}}
+                    {{--<input type="radio" name="status" value="1" @if(old('status',$user->status) == 1) checked="" @endif title="正常" lay-verify="required">--}}
+                    {{--<input type="radio" name="status" value="2" @if(old('status',$user->status) == 2) checked="" @endif title="停用" lay-verify="required">--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
 
             <div class="layui-form-item">

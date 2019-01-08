@@ -16,7 +16,7 @@ class CmsuserSeederTable extends Seeder
             'name' => 'GZH',
             'email' => 'admin@qq.com',
             'phone' => '18888888888',
-            'status' => '1',
+            'status' => '2',
             'password' => bcrypt('123456'),
             'remember_token' => str_random(10),
         ]);
