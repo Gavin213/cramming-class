@@ -38,7 +38,7 @@ class BannerController extends Controller
      */
     public function create(Request $request,Banner $banner)
     {
-        $this->authorize('create', $banner);
+//        $this->authorize('create', $banner);
 
         return backend_view('banner.create_and_edit', compact('banner'));
     }

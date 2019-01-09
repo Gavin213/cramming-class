@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+# 文件上传相关路由
+Route::post('upload/image', 'UploadController@image')->name('upload.image');
 
 
 /*
