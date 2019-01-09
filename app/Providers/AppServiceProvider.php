@@ -14,6 +14,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        \App\Models\Cmsuser::observe(\App\Observers\UserObserver::class);
     }
 
     /**

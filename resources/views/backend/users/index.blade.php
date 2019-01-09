@@ -48,7 +48,7 @@
                             <td>{{ $user->phone  }}</td>
                             <td>
                                 <div class="layui-btn-group">
-                                    <a href="{{ route('administrator.users.password.edit', $user->id) }}"
+                                    <a href="javascript:;" id="status" data-status="{{ $user->status }}"
                                        class="layui-btn layui-btn-sm @if($user->status ==2)layui-btn-warm @endif">@switch($user->status)
                                             @case(1)解冻@break
                                             @case(2)冻结@break
@@ -81,4 +81,13 @@
 
 @section('scripts')
     @include('backend.layouts._paginate',[ 'count' => $users->total(), ])
+
+    <script>
+        layui.use(['jquery'], function(){
+            var $ = layui.jquery;
+            $('#status').on('click',function() {
+                window.location.href = '{{ route('administrator.users.status.edit') }}'+'?id='+$(this).parents('tr').find('td:eq(0)').text()+'&status='+$(this).attr('data-status');
+            });
+        });
+    </script>
 @endsection

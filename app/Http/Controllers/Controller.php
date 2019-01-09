@@ -10,4 +10,20 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    /**
+     * 获取表单跳转
+     *
+     * @param null $route
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    protected function redirect( $route = null ){
+
+        if( $redirect = request('redirect') ){
+            return redirect($redirect);
+        }
+
+        $args = func_get_args();
+        return $route === null ? redirect(url()->previous()) : redirect()->route(...$args);
+    }
 }

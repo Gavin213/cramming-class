@@ -14,7 +14,7 @@
         </fieldset>
 
         <a href="{{ route('banners.create') }}" class="layui-btn">添加</a>
-        <button class="layui-btn layui-btn-danger" form="form-category-list">排序</button>
+        {{--<button class="layui-btn layui-btn-danger" form="form-category-list">排序</button>--}}
 
         <div class="layui-form">
             @if(count($banners))
@@ -24,16 +24,18 @@
                     <table class="layui-table">
                         <colgroup>
                             <col width="50">
-                            <col width="85">
+                            <col width="110">
+                            <col>
                             <col>
                             <col width="85">
-                            <col width="300">
+                            <col>
                         </colgroup>
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>排序</th>
-                            <th>描述</th>
+                            <th>Banner名称</th>
+                            <th>缩略图</th>
+                            <th>链接</th>
                             <th>状态</th>
                             <th>操作</th>
                         </tr>
@@ -42,12 +44,11 @@
                         @foreach($banners as $index => $banner)
                             <tr>
                                 <td>{{ $banner->id }}</td>
-                                <td>
-                                    <input type="hidden" name="id[]" value="{{$banner->id}}">
-                                    <input type="tel" name="order[]" lay-verify="required" autocomplete="off" class="layui-input" value="{{ $banner->order  }}">
-                                </td>
-                                <td>{{ $banner->description}}</td>
-                                <td>@if($banner->status == 1) 启用 @else 停用 @endif</td>
+                                <td>{{ $banner->name}}</td>
+                                <td><img class="layui-upload-img" src="{{ $banner->getImage('img') }}" id="image_image_b"
+                                         style="max-width: 520px;" height="80"></td>
+                                <td>{{ $banner->link}}</td>
+                                <td>@if($banner->status == 1) 保存 @else 发布 @endif</td>
                                 <td>
                                     <a href="{{ route('banners.edit', [$banner->id]) }}" class="layui-btn layui-btn-sm layui-btn-normal">编辑</a>
                                     <a href="javascript:;" data-url="{{ route('banners.destroy', [$banner->id]) }}" class="layui-btn layui-btn-sm layui-btn-danger form-delete">删除</a>

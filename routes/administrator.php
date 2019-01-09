@@ -50,7 +50,8 @@ Route::group(['domain' => config('administrator.domain'), 'prefix' => config('ad
     Route::resource('user', 'UserController', ['only' => ['password', 'avatar', 'update', 'edit', 'destroy']]);
     Route::get('user/{user}/password', 'UserController@showPasswordForm')->name('administrator.password.edit');
     Route::put('user/password/{user}', 'UserController@passwordRequestForm')->name('administrator.password.update');
-    Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+    Route::resource('users', 'UsersController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
+    Route::get('users/status', 'UsersController@status')->name('administrator.users.status.edit');
     Route::get('users/{user}/password', 'UsersController@showPasswordForm')->name('administrator.users.password.edit');
     Route::put('users/password/{user}', 'UsersController@passwordRequestForm')->name('administrator.users.password.update');
 

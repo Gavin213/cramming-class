@@ -22,7 +22,7 @@ class BannerController extends Controller
     {
 //        $this->authorize('index', $banner);
 
-        $banners = $banner->ordered()->recent()->paginate(config('administrator.paginate.limit'));
+        $banners = $banner->recent()->paginate(config('administrator.paginate.limit'));
 
         return backend_view('banner.index', compact('banners'));
     }
@@ -53,7 +53,7 @@ class BannerController extends Controller
      */
     public function store(BannerRequest $request,Banner $banner)
     {
-        $this->authorize('create',$banner);
+//        $this->authorize('create',$banner);
 
         $banner = Banner::create($request->all());
 
@@ -69,7 +69,7 @@ class BannerController extends Controller
      */
     public function edit(Banner $banner)
     {
-        $this->authorize('update', $banner);
+//        $this->authorize('update', $banner);
 
         return backend_view('banner.create_and_edit',compact('banner'));
     }
@@ -84,7 +84,7 @@ class BannerController extends Controller
      */
     public function update(BannerRequest $request,Banner $banner)
     {
-        $this->authorize('update', $banner);
+//        $this->authorize('update', $banner);
 
         $banner->update($request->all());
 
@@ -101,30 +101,10 @@ class BannerController extends Controller
      */
     public function destroy(Banner $banner)
     {
-        $this->authorize('destroy', $banner);
+//        $this->authorize('destroy', $banner);
         $banner->delete();
 
         return redirect()->route('banners.index')->with('success', '删除成功.');
     }
 
-
-    /**
-     * 排序
-     *
-     * @param Article $article
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Illuminate\Auth\Access\AuthorizationException
-     */
-    public function order(Banner $banner)
-    {
-        $this->authorize('update',$banner);
-        $ids = request('id');
-        $orders = request('order');
-
-        foreach($ids as $key => $value) {
-            $banner->where('id',$value)->update(['order' => $orders[$key] ?? 999 ]);
-        }
-
-        return redirect()->route('banners.index')->with('success', '操作成功.');
-    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Administrator;
 
+use App\Models\Cmsuser;
 use Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -66,10 +67,11 @@ class UsersController extends Controller
     {
 //        $this->authorize('create', $user);
 
-        $data = $request->only(['name','email','password','introduction','status']);
+        $data = $request->only(['name','email','password','phone','status']);
+        $data['password'] =  bcrypt($data['password']);
         $user = User::create($data);
-        $roles = $request->input('roles') ? $request->input('roles') : [];
-        $user->assignRole($roles);
+//        $roles = $request->input('roles') ? $request->input('roles') : [];
+//        $user->assignRole($roles);
 
         return $this->redirect('users.index')->with('success', '添加成功.');
     }
@@ -102,9 +104,9 @@ class UsersController extends Controller
     public function update(UserRequest $request, User $user)
     {
 //        $this->authorize('update', $user);
-        $user->update($request->all());
-        $roles = $request->input('roles') ? $request->input('roles') : [];
-        $user->syncRoles($roles);
+        $user->update($request->password ?  $request->all() : $request->except('password'));
+//        $roles = $request->input('roles') ? $request->input('roles') : [];
+//        $user->syncRoles($roles);
 
         return $this->redirect('users.index')->with('success', '更新成功.');
     }
@@ -168,5 +170,20 @@ class UsersController extends Controller
             'password.min' => '新密码至少为6位',
             'password.confirmed' => '确认密码与新密码不一致.',
         ])->validate();
+    }
+
+
+    /**
+     * 冻结解冻
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function status(Cmsuser $cmsuser)
+    {
+//        $this->authorize('update',$banner);
+        $cmsuser->where('id',request('id'))->update(['status'=>request('status') == 2 ? 1 : 2 ]);
+
+        return redirect()->back()->with('success', '操作成功.');
     }
 }

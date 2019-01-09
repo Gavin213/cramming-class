@@ -25,7 +25,7 @@
                 <label class="layui-form-label">Banner名称</label>
 
                 <div class="layui-input-block">
-                    <input type="text" name="name" lay-verify="" autocomplete="off" placeholder="请输入名称"
+                    <input type="text" name="name" lay-verify="required" autocomplete="off" placeholder="请输入名称"
                            class="layui-input" value="{{ old('name',$banner->name) }}">
                 </div>
             </div>
@@ -34,8 +34,8 @@
                 <label class="layui-form-label">Banner链接</label>
 
                 <div class="layui-input-block">
-                    <input type="text" name="url" lay-verify="" autocomplete="off" placeholder="请输入链接"
-                           class="layui-input" value="{{ old('link',$banner->url) }}">
+                    <input type="text" name="link" lay-verify="required" autocomplete="off" placeholder="请输入链接"
+                           class="layui-input" value="{{ old('link',$banner->link) }}">
                 </div>
             </div>
 
@@ -45,8 +45,8 @@
 
                     <div class="layui-upload">
                         <button type="button" class="layui-btn" id="upload_bg">上传Banner</button>
-                        <input type="hidden" name="b_url_id" id="b_url_id" lay-verify="img"
-                               value="{{ old('image',$banner->img) }}"/>
+                        <input type="hidden" name="img" id="b_url_id" lay-verify="img"
+                               value="{{ old('img',$banner->img) }}"/>
 
                         <div class="layui-upload-list">
                             <img class="layui-upload-img" src="{{ $banner->getImage('img') }}" id="image_image_b"
@@ -61,10 +61,10 @@
                     <label class="layui-form-label">状态</label>
 
                     <div class="layui-input-block">
-                        <input type="radio" name="status" lay-skin="primary" value="0" title="禁用"
-                               @if($banner->status == '0') checked="" @endif >
-                        <input type="radio" name="status" lay-skin="primary" value="1" title="启用"
+                        <input type="radio" name="status" lay-skin="primary" value="1" title="保存"
                                @if($banner->status == '1') checked="" @endif >
+                        <input type="radio" name="status" lay-skin="primary" value="2" title="发布"
+                               @if($banner->status == '2') checked="" @endif >
                     </div>
                 </div>
             @else

@@ -38,14 +38,12 @@
                 </div>
             </div>
 
-            @if(!$user->id)
             <div class="layui-form-item">
                 <label class="layui-form-label">密码</label>
                 <div class="layui-input-block">
-                    <input type="text" name="password" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input" value="{{ old('password',$user->password) }}" >
+                    <input type="text" name="password" lay-verify="" placeholder="请输入" autocomplete="off" class="layui-input" value="" >
                 </div>
             </div>
-            @endif
 
             <div class="layui-form-item" pane="">
                 <label class="layui-form-label">角色</label>

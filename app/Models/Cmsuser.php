@@ -12,6 +12,8 @@ class Cmsuser extends Authenticatable
     //
     protected $table = 'cmsuser';
 
+    protected $fillable = ['id','name','email','phone','status','password','updated_at','created_at'];
+
 
     /**
      * 返回完整的头像地址
