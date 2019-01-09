@@ -47,7 +47,7 @@ Route::group(['domain' => config('administrator.domain'), 'prefix' => config('ad
     Route::post('site/contact','SiteController@contactStore');
 
     # 用户相关路由
-    Route::resource('user', 'UserController', ['only' => ['password', 'avatar', 'update', 'edit', 'destroy']]);
+    Route::resource('user', 'UserController', ['only' => ['index','password', 'avatar', 'update', 'edit', 'destroy']]);
     Route::get('user/{user}/password', 'UserController@showPasswordForm')->name('administrator.password.edit');
     Route::put('user/password/{user}', 'UserController@passwordRequestForm')->name('administrator.password.update');
     Route::resource('users', 'UsersController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);

@@ -25,7 +25,7 @@ return [
             "permission" => function(){ return true; },
             "icon" => "",
             "link" => "",
-            "route" => "users.index",
+            "route" => "user.index",
             "params" => [],
             "query" => [],
             "children" => [],
