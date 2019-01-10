@@ -1,10 +1,9 @@
 @extends('backend.layouts.app')
 
-@section('title', $title = '用户列表')
+@section('title', $title = '辅导员列表')
 
 @section('breadcrumb')
-    <a href="">系统设置</a>
-    <a href="">用户</a>
+    <a href="">辅导员管理</a>
     <a href="">{{$title}}</a>
 @endsection
 
@@ -58,11 +57,16 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>微信昵称</th>
-                        <th>微信头像</th>
                         <th>姓名</th>
+                        <th>照片</th>
                         <th>邮箱</th>
                         <th>年级</th>
+                        <th>辅导课程</th>
+                        <th>课程时间</th>
+                        <th>辅导方式</th>
+                        <th>个人介绍</th>
+                        <th>Q1</th>
+                        <th>Q2</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -70,17 +74,30 @@
                     @foreach($users as $index => $user)
                         <tr>
                             <td>{{ $user->id  }}</td>
-                            <td>{{ $user->nickname  }}</td>
-                            <td><img class="layui-upload-img" src="{{ $user->avatar  }}" id="image_image_b"
-                                     style="max-width: 520px;" height="60"></td>
                             <td>{{ $user->name  }}</td>
+                            <td><img class="layui-upload-img" src="{{ $user->headimg  }}" id="image_image_b"
+                                     style="max-width: 520px;" height="60"></td>
                             <td>{{ $user->email  }}</td>
                             <td>{{ $user->grade  }}</td>
+                            <td>{{ $user->course  }}</td>
+                            <td>{{ $user->time  }}</td>
+                            <td>{{ $user->teach_way  }}</td>
+                            <td>{{ $user->introduce  }}</td>
+                            <td>{{ $user->que_one  }}</td>
+                            <td>{{ $user->que_tew  }}</td>
                             <td>
-                                <div class="layui-btn-group">
-                                    <button class="layui-btn layui-btn-sm layui-btn-normal edit-user">编辑</button>
-                                </div>
-
+                                @switch($user->is_active)
+                                    @case(0)
+                                    <button class="layui-btn layui-btn-sm layui-btn-normal">通过</button>
+                                    <button class="layui-btn layui-btn-sm layui-btn-danger">拒绝</button>
+                                    @break
+                                    @case(1)
+                                    <span>已拒绝</span>
+                                    @break
+                                    @case(2)
+                                    <span>已通过</span>
+                                    @break
+                                @endswitch
                             </td>
                         </tr>
                     @endforeach
@@ -126,7 +143,7 @@
                 </div>
                 <div class="layui-form-item">
                     <div class="layui-input-block">
-                        <button class="layui-btn submit-edit">提交</button>
+                        <button class="layui-btn">提交</button>
                     </div>
                 </div>
             </form>
@@ -154,34 +171,7 @@
                     area: ['600px', '400px'], //宽高
                     content: form.html()
                 });
-                $('.submit-edit').off().on('click', function () {
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': '{{csrf_token()}}'
-                        }
-                    });
-                    let url = '/administrator/user/'+tr.find('td:eq(0)').text();
-                    let form = $(this).parents('form');
-                    $.ajax({
-                        url: url,
-                        type: 'patch',
-                        data: {
-                            name: form.find('input:eq(1)').val(),
-                            email: form.find('input:eq(2)').val(),
-                            grade: form.find('input:eq(3)').val()
-                        },
-                        success:function () {
-                            layer.msg('修改成功', {icon: 1})
-                            setTimeout(function () {
-                                window.location.reload();
-                            }, 1000);
-                        },
-                        error:function() {
 
-                        }
-                    });
-                    return false;
-                });
             });
 
         });

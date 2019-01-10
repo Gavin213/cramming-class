@@ -36,7 +36,7 @@ return [
             "permission" => function(){ return true; },
             "icon" => "",
             "link" => "",
-            "route" => "users.index",
+            "route" => "teacher.index",
             "params" => [],
             "query" => [],
             "children" => [],

@@ -29,4 +29,22 @@ class UserController extends Controller
 
         return backend_view('user.index', compact('users','email'));
     }
+
+
+    /**
+     * 更新
+     *
+     * @param UserRequest $request
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function update(Request $request, Wechatuser $user)
+    {
+//        $this->authorize('update', $user);
+        $user->update($request->all());
+//        $roles = $request->input('roles') ? $request->input('roles') : [];
+//        $user->syncRoles($roles);
+        return response()->json(['status'=>0,'msg'=>'success']);
+    }
 }

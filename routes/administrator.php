@@ -55,6 +55,9 @@ Route::group(['domain' => config('administrator.domain'), 'prefix' => config('ad
     Route::get('users/{user}/password', 'UsersController@showPasswordForm')->name('administrator.users.password.edit');
     Route::put('users/password/{user}', 'UsersController@passwordRequestForm')->name('administrator.users.password.update');
 
+    #辅导员路由
+    Route::resource('teacher', 'TeacherController', ['only' => ['index','password', 'avatar', 'update', 'edit', 'destroy']]);
+
     # 角色相关路由
     Route::resource('roles', 'RolesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
