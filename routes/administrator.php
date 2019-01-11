@@ -56,6 +56,9 @@ Route::group(['domain' => config('administrator.domain'), 'prefix' => config('ad
     Route::get('users/{user}/password', 'UsersController@showPasswordForm')->name('administrator.users.password.edit');
     Route::put('users/password/{user}', 'UsersController@passwordRequestForm')->name('administrator.users.password.update');
 
+    #课程管理
+    Route::resource('courses', 'CoursesController', ['only' => ['index','password', 'avatar', 'update', 'edit', 'destroy']]);
+
     #辅导员路由
     Route::resource('teacher', 'TeacherController', ['only' => ['index']]);
     Route::get('teacher/{user}/is_active/{is_active}', 'TeacherController@update')->name('administrator.teacher.edit');
@@ -66,6 +69,11 @@ Route::group(['domain' => config('administrator.domain'), 'prefix' => config('ad
 
     # 权限相关路由
     Route::resource('permissions', 'PermissionsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+
+
+
+
+
     # 友情链接相关路由
     Route::resource('links', 'LinksController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
