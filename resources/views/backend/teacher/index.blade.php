@@ -22,6 +22,7 @@
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">邮箱</label>
+
                             <div class="layui-input-inline">
                                 <input type="text" name="email" lay-verify="email" autocomplete="off"
                                        value="{{ $email ?? '' }}" class="layui-input">
@@ -36,7 +37,7 @@
             </div>
             <div class="layui-col-md3">
                 <div style="float: right;">
-                    <button class="layui-btn" form="form-article-list">导出名单</button>
+                    <a href="{{ route("administrator.export.teacher") }}" class="layui-btn" form="form-article-list">导出名单</a>
                 </div>
             </div>
         </div>
@@ -79,24 +80,26 @@
                                      style="max-width: 520px;" height="60"></td>
                             <td>{{ $user->email  }}</td>
                             <td>{{ $user->grade  }}</td>
-                            <td>{{ $user->course  }}</td>
-                            <td>{{ $user->time  }}</td>
+                            <td>{!! $user->course !!}</td>
+                            <td>{!! $user->time !!}</td>
                             <td>{{ $user->teach_way  }}</td>
                             <td>{{ $user->introduce  }}</td>
                             <td>{{ $user->que_one  }}</td>
                             <td>{{ $user->que_tew  }}</td>
                             <td>
                                 @switch($user->is_active)
-                                    @case(0)
-                                    <button class="layui-btn layui-btn-sm layui-btn-normal">通过</button>
-                                    <button class="layui-btn layui-btn-sm layui-btn-danger">拒绝</button>
-                                    @break
-                                    @case(1)
-                                    <span>已拒绝</span>
-                                    @break
-                                    @case(2)
-                                    <span>已通过</span>
-                                    @break
+                                @case(0)
+                                <a href="{{ route('administrator.teacher.edit', array('user'=>$user->id,'is_active'=>2)) }}"
+                                   class="layui-btn layui-btn-sm layui-btn-normal">通过</a>
+                                <a href="{{ route('administrator.teacher.edit', array('user'=>$user->id,'is_active'=>1)) }}"
+                                   class="layui-btn layui-btn-sm layui-btn-danger">拒绝</a>
+                                @break
+                                @case(1)
+                                <span>已拒绝</span>
+                                @break
+                                @case(2)
+                                <span>已通过</span>
+                                @break
                                 @endswitch
                             </td>
                         </tr>
@@ -120,8 +123,10 @@
         <div class="site-text site-block">
             <form action="" class="layui-form" style="margin-right:100px;">
                 <input type="hidden" name="id">
+
                 <div class="layui-form-item">
                     <label class="layui-form-label">姓名</label>
+
                     <div class="layui-input-block">
                         <input type="text" name="title" required lay-verify="required" placeholder="请输入标题"
                                autocomplete="off" class="layui-input" value="">
@@ -129,6 +134,7 @@
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">邮箱</label>
+
                     <div class="layui-input-block">
                         <input type="text" name="title" required lay-verify="required" placeholder="请输入标题"
                                autocomplete="off" class="layui-input" value="">
@@ -136,6 +142,7 @@
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">年级</label>
+
                     <div class="layui-input-block">
                         <input type="text" name="title" required lay-verify="required" placeholder="请输入标题"
                                autocomplete="off" class="layui-input" value="">
@@ -156,7 +163,7 @@
     <script type="text/javascript">
         layui.use(['jquery', 'layer'], function () {
             var $ = layui.jquery
-                , layer = layui.layer;
+                    , layer = layui.layer;
             $('.edit-user').on('click', function () {
                 var form = $('#edit-user');
                 var tr = $(this).parents('tr');

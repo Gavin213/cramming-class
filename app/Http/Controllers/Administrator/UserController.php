@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Administrator;
 
+use App\Exports\UsersExport;
 use App\Models\Wechatuser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -46,5 +48,17 @@ class UserController extends Controller
 //        $roles = $request->input('roles') ? $request->input('roles') : [];
 //        $user->syncRoles($roles);
         return response()->json(['status'=>0,'msg'=>'success']);
+    }
+
+
+    /**
+     * 导出用户表
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function export()
+    {
+        return Excel::download(new UsersExport(), 'users.xlsx');
     }
 }

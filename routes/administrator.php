@@ -49,6 +49,7 @@ Route::group(['domain' => config('administrator.domain'), 'prefix' => config('ad
     # 用户相关路由
     Route::resource('user', 'UserController', ['only' => ['index','password', 'avatar', 'update', 'edit', 'destroy']]);
     Route::get('user/{user}/password', 'UserController@showPasswordForm')->name('administrator.password.edit');
+    Route::get('user/export', 'UserController@export')->name('administrator.export.user');
     Route::put('user/password/{user}', 'UserController@passwordRequestForm')->name('administrator.password.update');
     Route::resource('users', 'UsersController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
     Route::get('users/status', 'UsersController@status')->name('administrator.users.status.edit');
@@ -56,7 +57,9 @@ Route::group(['domain' => config('administrator.domain'), 'prefix' => config('ad
     Route::put('users/password/{user}', 'UsersController@passwordRequestForm')->name('administrator.users.password.update');
 
     #辅导员路由
-    Route::resource('teacher', 'TeacherController', ['only' => ['index','password', 'avatar', 'update', 'edit', 'destroy']]);
+    Route::resource('teacher', 'TeacherController', ['only' => ['index']]);
+    Route::get('teacher/{user}/is_active/{is_active}', 'TeacherController@update')->name('administrator.teacher.edit');
+    Route::get('teacher/export', 'TeacherController@export')->name('administrator.export.teacher');
 
     # 角色相关路由
     Route::resource('roles', 'RolesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);

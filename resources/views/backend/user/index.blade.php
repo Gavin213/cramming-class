@@ -37,7 +37,7 @@
             </div>
             <div class="layui-col-md3">
                 <div style="float: right;">
-                    <button class="layui-btn" form="form-article-list">导出名单</button>
+                    <a href="{{ route("administrator.export.user") }}" class="layui-btn" form="form-article-list">导出名单</a>
                 </div>
             </div>
         </div>

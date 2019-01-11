@@ -11,7 +11,7 @@ class Wechatuser extends Model
     //
     protected $table = 'wechat_user';
 
-    protected $fillable = ['id','name','openId','nickname','avatar','email','grade','type','headimg','course','time','introduce','que_one','que_tew','updated_at','created_at'];
+    protected $fillable = ['id','name','openId','nickname','avatar','email','grade','type','headimg','course','time','introduce','que_one','que_tew','is_active','updated_at','created_at'];
 
 
     /**
