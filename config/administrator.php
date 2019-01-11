@@ -47,7 +47,7 @@ return [
             "permission" => function(){ return true; },
             "icon" => "",
             "link" => "",
-            "route" => "users.index",
+            "route" => "courses.index",
             "params" => [],
             "query" => [],
             "children" => [],
