@@ -84,7 +84,7 @@
                 <div class="layui-input-block" style="margin-left: 150px">
                     <div class="layui-row">
                         <div class="layui-col-md2 layui-col-sm4 layui-col-md-offset1">
-                            <img src="{{ asset('/mednove/images/client1.png') }}" alt="">
+                            <img src="{{ asset('/mednove/images/client1.png') }}" alt="" width="100%">
                             <div class="cmdlist-text" style="text-align: center;">
                                 <p style="margin-bottom: 5px;">test</p>
                                 <button class="layui-btn layui-btn-sm">选他</button>
