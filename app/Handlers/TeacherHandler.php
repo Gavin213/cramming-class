@@ -32,13 +32,13 @@ class TeacherHandler
         return $str;
     }
 
-    public function handlerTeachWayData(String $data)
+    public function handlerTeachWayData($data)
     {
         return $data ? $this->getBase('teacher.teach_way',$data) : '';
     }
 
 
-    public function handlerTimeData(String $data)
+    public function handlerTimeData($data)
     {
         $data = explode(',',$data);
         $str = '';

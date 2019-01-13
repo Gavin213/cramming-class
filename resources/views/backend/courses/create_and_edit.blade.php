@@ -1,10 +1,36 @@
 @extends('backend.layouts.app')
 
-@section('title', $title = $banner->id ? '编辑banner' : '新建banner' )
+@section('styles')
+    <style>
+        .layui-input {
+            width: 80%;
+        }
+        .layui-form-label {
+            width: 130px;
+        }
+        .layui-input-block {
+            margin-left: 160px;
+        }
+        .week {
+            margin-top: 10px;
+            display: none;
+        }
+
+        @media screen and (min-width: 992px) {
+            .layui-col-md-offset1{
+                margin-right: 8.33333333%;
+                margin-left:0;
+
+            }
+        }
+
+    </style>
+@endsection
+
+@section('title', $title = $course->id ? '编辑课程' : '新建课程' )
 
 @section('breadcrumb')
     <a href="">站点设置</a>
-    <a href="">内容管理</a>
     <a href="">{{$title}}</a>
 @endsection
 
@@ -16,73 +42,65 @@
         <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
             <legend>{{ $title }}</legend>
         </fieldset>
-        <form class="layui-form layui-form-pane" method="POST"
-              action="{{ $banner->id ? route('banners.update', $banner->id) : route('banners.store') }}?redirect={{ previous_url() }}">
+        <form class="layui-form" method="POST"
+              action="{{ $course->id ? route('banners.update', $course->id) : route('banners.store') }}?redirect={{ previous_url() }}">
             {{ csrf_field() }}
-            <input type="hidden" name="_method" class="mini-hidden" value="{{ $banner->id ? 'PUT' : 'POST' }}">
+            <input type="hidden" name="_method" class="mini-hidden" value="{{ $course->id ? 'PUT' : 'POST' }}">
 
             <div class="layui-form-item">
-                <label class="layui-form-label">Banner名称</label>
+                <label class="layui-form-label">选择课程日期</label>
 
                 <div class="layui-input-block">
-                    <input type="text" name="name" lay-verify="required" autocomplete="off" placeholder="请输入名称"
-                           class="layui-input" value="{{ old('name',$banner->name) }}">
+                    <input type="text" name="date" lay-verify="required" autocomplete="off" id="date"
+                           placeholder="选择日期"
+                           class="layui-input" value="{{ old('date',$course->date) }}">
+                    <p class="week"></p>
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">选择课程时间</label>
+
+                <div class="layui-input-block">
+                    <input type="text" name="time" lay-verify="required" autocomplete="off" id="time"
+                           placeholder="选择时间(需要选择开始和结束时间)"
+                           class="layui-input" value="{{ old('time',$course->time) }}">
                 </div>
             </div>
 
             <div class="layui-form-item">
-                <label class="layui-form-label">Banner链接</label>
+                <label class="layui-form-label">课程地址</label>
 
                 <div class="layui-input-block">
-                    <input type="text" name="link" lay-verify="required" autocomplete="off" placeholder="请输入链接"
-                           class="layui-input" value="{{ old('link',$banner->link) }}">
+                    <input type="text" name="address" lay-verify="required" autocomplete="off" placeholder="请输入地址"
+                           class="layui-input" value="{{ old('address',$course->address) }}">
                 </div>
             </div>
 
             <div class="layui-form-item">
-                <div class="layui-form-item">
-                    <label for="" class="layui-form-label">上传Banner</label>
+                <label class="layui-form-label">辅导员</label>
 
-                    <div class="layui-upload">
-                        <button type="button" class="layui-btn" id="upload_bg">上传Banner</button>
-                        <input type="hidden" name="img" id="b_url_id" lay-verify="img"
-                               value="{{ old('img',$banner->img) }}"/>
-
-                        <div class="layui-upload-list">
-                            <img class="layui-upload-img" src="{{ $banner->getImage('img') }}" id="image_image_b"
-                                 style="max-width: 520px;" _height="280">
+                <div class="layui-input-block" style="margin-left: 150px">
+                    <div class="layui-row">
+                        <div class="layui-col-md2 layui-col-sm4 layui-col-md-offset1">
+                            <img src="{{ asset('/mednove/images/client1.png') }}" alt="">
+                            <div class="cmdlist-text" style="text-align: center;">
+                                <p style="margin-bottom: 5px;">test</p>
+                                <button class="layui-btn layui-btn-sm">选他</button>
+                            </div>
                         </div>
                     </div>
+                    <img src="" alt="">
                 </div>
             </div>
 
-            @if($banner->id)
-                <div class="layui-form-item" pane="">
-                    <label class="layui-form-label">状态</label>
 
-                    <div class="layui-input-block">
-                        <input type="radio" name="status" lay-skin="primary" value="1" title="保存"
-                               @if($banner->status == '1') checked="" @endif >
-                        <input type="radio" name="status" lay-skin="primary" value="2" title="发布"
-                               @if($banner->status == '2') checked="" @endif >
-                    </div>
-                </div>
-            @else
-                <div class="layui-form-item" pane="">
-                    <label class="layui-form-label">状态</label>
-
-                    <div class="layui-input-block">
-                        <input type="radio" name="status" lay-skin="primary" value="1" checked="" title="保存">
-                        <input type="radio" name="status" lay-skin="primary" value="2" title="发布">
-                    </div>
-                </div>
-            @endif
-
-            <div class="layui-form-item">
+            <div class="layui-form-item" style="text-align: center;">
                 {{--<div class="layui-input-block">--}}
                 {{--<input type="hidden" name="parent" value="{{$parent}}">--}}
                 <button class="layui-btn" lay-submit="" lay-filter="demo1">提交</button>
-                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                <button type="reset" class="layui-btn layui-btn-danger">取消</button>
                 {{--</div>--}}
             </div>
         </form>
@@ -91,39 +109,42 @@
 
 @section('scripts')
     <script>
-        layui.use(['upload', 'form'], function () {
-            var form = layui.form;
-            var upload = layui.upload;
+        layui.use(['form','jquery'], function () {
+            var laydate = layui.laydate,$ = layui.jquery;
 
-            //执行实例
-            var uploadInst = upload.render({
-                elem: '#upload_bg' // 绑定元素
-                , url: '{{ route('upload.image') }}?folder=banner&object_id={{$banner->id ?? 0}}' // 上传接口
-                , field: 'upload_file'
-                , done: function (res) {
-                    if (res.success == true) {
-                        $("#b_url_id").val(res.file_uri);
-                        $("#image_image_b").attr("src", res.file_path);
-                    } else {
-                        layer.alert('上传失败，请重试!', 2);
-                    }
-                    //上传完毕回调
-                    console.log(res);
-                }
-                , error: function () {
-                    //请求异常回调
-                    layer.alert('上传失败，请重试!', 2);
-                }
-            });
-            form.verify({
-                img: function (value) {
-                    if (value.length < 1) {
-                        return '请上传图片';
-                    }
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#date', //指定元素
+                done : function (value, date) {
+                    searchTeacher(value);
                 }
             });
 
-            form.render();
+            //时间范围
+            laydate.render({
+                elem: '#time'
+                , type: 'time'
+                , range: true
+            });
+
+            var searchTeacher = function (data) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': '{{csrf_token()}}'
+                    }
+                });
+                $.ajax({
+                    url:'{{ route('administrator.search.teachers') }}',
+                    type:'get',
+                    data: {date:data},
+                    success:function(data)
+                    {
+                        var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+                        $('.week').text(weekday[data.week]).show();
+                    }
+
+                })
+            }
         });
     </script>
 @endsection

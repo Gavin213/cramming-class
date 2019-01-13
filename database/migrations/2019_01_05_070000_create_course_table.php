@@ -19,7 +19,6 @@ class CreateCourseTable extends Migration
             $table->time('start')->comment('课程开始时间');
             $table->time('end')->comment('课程结束时间');
             $table->string('address')->comment('补课地址');
-            $table->json('teachers')->comment('补课教师');
             $table->text('content')->nullable()->comment('本次课程全部内容');
             $table->string('behavior')->nullable()->comment('本次课程学员表现');
             $table->string('job')->nullable()->comment('课后作业');

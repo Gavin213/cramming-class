@@ -57,7 +57,8 @@ Route::group(['domain' => config('administrator.domain'), 'prefix' => config('ad
     Route::put('users/password/{user}', 'UsersController@passwordRequestForm')->name('administrator.users.password.update');
 
     #课程管理
-    Route::resource('courses', 'CoursesController', ['only' => ['index','password', 'avatar', 'update', 'edit', 'destroy']]);
+    Route::resource('courses', 'CoursesController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
+    Route::get('courses/search/teachers', 'CoursesController@teachers')->name('administrator.search.teachers');
 
     #辅导员路由
     Route::resource('teacher', 'TeacherController', ['only' => ['index']]);
